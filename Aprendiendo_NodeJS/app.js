@@ -1,4 +1,10 @@
-const {currentDateMessage, birthDateMessage } = require('./date-messages');
+const events = require('events');
+let eventEmitterExample = new events.EventEmitter();
 
-console.log(currentDateMessage('Creado el'));
-console.log(birthDateMessage('1980, 12, 4'));
+const messageFunction = () => {
+    console.log('Bienvenid@');
+}
+
+eventEmitterExample.on('login', messageFunction);
+
+eventEmitterExample.emit('login');
