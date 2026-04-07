@@ -1,3 +1,8 @@
-let bufferExample = Buffer.from('Hola mundo!');
+const fs = require('fs');
 
-console.log(bufferExample);
+let streamExample = fs.createReadStream('./message.txt');
+
+streamExample.on('data', (chunk) => {
+    console.log(chunk.toString());
+    console.log(`Tamaño datos recibidos ${chunk.length} bytes`);
+});
